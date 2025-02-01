@@ -48,7 +48,7 @@ const Header = () => {
 
       {/* Hamburger Menu for Mobile */}
       <div className="lg:hidden">
-        <button onClick={toggleMenu} className="text-white">
+        <button onClick={toggleMenu} className="text-black bg-white/90">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

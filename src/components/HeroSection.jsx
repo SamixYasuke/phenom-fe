@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="pt-40 sm:pt-56 pb-52 relative bg-[url('/images/phenom-hero-section-bg.jpg')] bg-cover bg-no-repeat bg-center w-full h-fit">
+    <section className="pt-32 sm:pt-56 pb-52 relative bg-[url('/images/phenom-hero-section-bg.jpg')] bg-cover bg-no-repeat bg-center w-full h-fit">
       <div className=" absolute inset-0 bg-gradient-to-b from-[#22063670] to-[#220636]"></div>
 
       {/* Button Section */}
