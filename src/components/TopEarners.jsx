@@ -13,7 +13,7 @@ const TopEarners = () => {
         description="Achievement that counts."
         breadcrumbItems={breadcrumbItems}
       />
-      <div className="bg-gray-950 relative isolate overflow-hidden z-50  flex flex-col justify-between pxjh-6 py-16 shadow-2xl sm:px-16 md:py-10 lg:px-18">
+      <div className="bg-gray-950 relative isolate overflow-hidden z-50  flex flex-col justify-between pxjh-6 py-16 shadow-2xl sm:px-8 md:py-10 lg:px-18">
         <div
           className="mx-auto max-w-md text-center px-6 lg:mx-0 lg:flex-auto lg:pb-10 lg:text-left"
           style={{ transform: "translateZ(0px)", opacity: 1 }}
