@@ -3,7 +3,7 @@ const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
     <li className="relative z-10" ref={couponRef}>
       <button
         onClick={() => setIsCouponOpen(!isCouponOpen)}
-        className="flex items-center gap-1 hover:text-gray-300 font-semibold"
+        className="flex items-center gap-1 hover:text-gray-300 font-semibold text-sm"
       >
         Coupon Code{" "}
         <span>
@@ -28,7 +28,7 @@ const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
           <li>
             <a
               href="/coupon/checker"
-              className="block px-4 py-2 hover:bg-gray-200"
+              className="block px-4 py-2 hover:bg-gray-200 text-sm"
             >
               Coupon Checker
             </a>
@@ -36,7 +36,7 @@ const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
           <li>
             <a
               href="/coupon/vendors"
-              className="block px-4 py-2 hover:bg-gray-200"
+              className="block px-4 py-2 hover:bg-gray-200 text-sm"
             >
               Coupon Vendors
             </a>

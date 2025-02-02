@@ -45,10 +45,9 @@ const Header = () => {
           />
         </a>
       </div>
-
       {/* Hamburger Menu for Mobile */}
       <div className="lg:hidden">
-        <button onClick={toggleMenu} className="text-black bg-white/90">
+        <button onClick={toggleMenu} className="text-black bg-gray-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -65,50 +64,52 @@ const Header = () => {
           </svg>
         </button>
       </div>
-
       {/* Navigation (Hidden on LG and below) */}
       <nav className="lg:flex hidden">
         <ul className={`flex gap-12 items-center`}>
           <li>
-            <a href="/" className="hover:text-gray-300 font-semibold">
+            <a href="/" className="hover:text-gray-300 font-semibold text-sm">
               Home
             </a>
           </li>
           <li>
-            <a href="/about" className="hover:text-gray-300  font-semibold">
+            <a
+              href="/about"
+              className="hover:text-gray-300 font-semibold text-sm"
+            >
               About
             </a>
           </li>
           <li>
             <a
               href="/phenom-claim"
-              className="hover:text-gray-300  font-semibold"
+              className="hover:text-gray-300 font-semibold text-sm"
             >
               Phenom Claim
             </a>
           </li>
-
           {/* Coupon Code Dropdown */}
           <CouponCodeDropdown
             couponRef={couponRef}
             isCouponOpen={isCouponOpen}
             setIsCouponOpen={setIsCouponOpen}
           />
-
           <li>
             <a
               href="/top-earners"
-              className="hover:text-gray-300  font-semibold"
+              className="hover:text-gray-300 font-semibold text-sm"
             >
               Top Earners
             </a>
           </li>
           <li>
-            <a href="/contact" className="hover:text-gray-300  font-semibold">
+            <a
+              href="/contact"
+              className="hover:text-gray-300 font-semibold text-sm"
+            >
               Contact Us
             </a>
           </li>
-
           {/* Others Dropdown */}
           <OthersDropdown
             othersRef={othersRef}
@@ -117,13 +118,11 @@ const Header = () => {
           />
         </ul>
       </nav>
-
       {/* Mobile Menu with Animation */}
       <MobileMenu isMobileMenuOpen={isMobileMenuOpen} toggleMenu={toggleMenu} />
-
       {/* Login Button (Hidden on LG and below) */}
       <div className="lg:block hidden">
-        <a href="#" className="px-4 py-2 text-white font-semibold">
+        <a href="/login" className="px-4 py-2 text-white font-semibold text-sm">
           Log In →
         </a>
       </div>

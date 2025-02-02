@@ -3,7 +3,7 @@ const OthersDropdown = ({ othersRef, setIsOthersOpen, isOthersOpen }) => {
     <li className="relative z-10" ref={othersRef}>
       <button
         onClick={() => setIsOthersOpen(!isOthersOpen)}
-        className="flex items-center gap-1 hover:text-gray-300 font-semibold"
+        className="flex items-center gap-1 hover:text-gray-300 font-semibold text-sm"
       >
         Others{" "}
         <span>
@@ -26,13 +26,19 @@ const OthersDropdown = ({ othersRef, setIsOthersOpen, isOthersOpen }) => {
       {isOthersOpen && (
         <ul className="absolute left-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg py-2">
           <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-              Option A
+            <a
+              href="/privacy"
+              className="block px-4 py-2 hover:bg-gray-200 text-sm"
+            >
+              Privacy Policy
             </a>
           </li>
           <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-              Option B
+            <a
+              href="/terms"
+              className="block px-4 py-2 hover:bg-gray-200 text-sm"
+            >
+              Terms & Conditions
             </a>
           </li>
         </ul>

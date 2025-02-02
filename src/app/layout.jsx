@@ -1,6 +1,11 @@
-import Header from "@/components/Header";
 import "../../public/styles/globals.css";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata = {
   title: "Phenom",
@@ -43,10 +48,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        {children}
-        <Footer />
+      <body className={poppins.className}>
+        <Layout children={children} />
       </body>
     </html>
   );

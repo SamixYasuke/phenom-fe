@@ -2,7 +2,7 @@ import React from "react";
 
 const BreadCrumb = ({ title, description, breadcrumbItems }) => {
   return (
-    <div className="pt-32 pb-10 sm:py-22 ">
+    <div className="pt-32 pb-10 sm:py-22 px-10 ">
       <div className="flex flex-col gap-10 items-center justify-center lg:mx-0">
         <h2 className="text-pretty text-md font-normal tracking-tight text-secondary sm:text-2xl text-[rgb(84,16,135)]">
           {title}
