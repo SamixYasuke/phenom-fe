@@ -30,7 +30,7 @@ const WhatIsPhenomAbout = () => {
   ];
 
   return (
-    <section className="relative mx-auto max-w-7xl px-6 lg:px-8 pt-24 lg:pt-32">
+    <section className="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 lg:py-32">
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
         <Gradient />
       </div>
