@@ -26,13 +26,19 @@ const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
       {isCouponOpen && (
         <ul className="absolute left-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg py-2">
           <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-              Option 1
+            <a
+              href="/coupon/checker"
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Coupon Checker
             </a>
           </li>
           <li>
-            <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-              Option 2
+            <a
+              href="/coupon/vendors"
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Coupon Vendors
             </a>
           </li>
         </ul>

@@ -70,17 +70,20 @@ const Header = () => {
       <nav className="lg:flex hidden">
         <ul className={`flex gap-12 items-center`}>
           <li>
-            <a href="#" className="hover:text-gray-300 font-semibold">
+            <a href="/" className="hover:text-gray-300 font-semibold">
               Home
             </a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300  font-semibold">
+            <a href="/about" className="hover:text-gray-300  font-semibold">
               About
             </a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300  font-semibold">
+            <a
+              href="/phenom-claim"
+              className="hover:text-gray-300  font-semibold"
+            >
               Phenom Claim
             </a>
           </li>
