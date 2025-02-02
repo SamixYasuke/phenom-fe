@@ -1,4 +1,4 @@
-import CouponVendorSection from "@/components/CouponVendorSection";
+import BreadCrumb from "@/components/BreadCrumb";
 
 const CouponVendorPage = () => {
   const breadcrumbItems = [
@@ -7,7 +7,7 @@ const CouponVendorPage = () => {
   ];
   return (
     <section>
-      <CouponVendorSection
+      <BreadCrumb
         title="Coupon Vendors"
         description="Contact any of the vendors here."
         breadcrumbItems={breadcrumbItems}

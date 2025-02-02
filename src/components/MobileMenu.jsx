@@ -81,7 +81,7 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
                 href="/coupon/vendors"
                 className="block text-sm text-gray-300 hover:text-white font-bold"
               >
-                Coupon 2
+                Coupon Vendors
               </a>
             </div>
           )}

@@ -1,60 +1,17 @@
+import BreadCrumb from "./BreadCrumb";
+
 const CouponCodeChecker = () => {
+  const breadcrumbItems = [
+    { href: "/", label: "Home" },
+    { href: "#", label: "Code checker" },
+  ];
   return (
-    <div className="pt-32 pb-10 sm:py-22 md:px-10">
-      <div className="flex flex-col gap-10 items-center justify-center lg:mx-0">
-        <h2 className="text-lg font-normal tracking-tight text-secondary sm:text-2xl text-[rgb(84,16,135)]">
-          Coupon Code Checker
-        </h2>
-        <p className="mt-2 text-4xl/snug sm:text-8xl text-center font-semibold font-poppins text-gray-700">
-          Validate your coupon code.
-        </p>
-        <nav className="flex pt-10" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <li className="inline-flex items-center">
-              <a
-                href="/"
-                className="inline-flex items-center text-sm font-medium text-secondary hover:text-accent-2 text-[rgb(84,16,135)]"
-              >
-                <svg
-                  className="w-3 h-3 mr-2.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
-                </svg>
-                Home
-              </a>
-            </li>
-            <li>
-              <div className="flex items-center">
-                <svg
-                  className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 6 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 9 4-4-4-4"
-                  />
-                </svg>
-                <a
-                  href="/coupon/checker"
-                  className="ml-1 text-sm font-medium text-secondary hover:text-accent-2 md:ml-2 text-[rgb(84,16,135)]"
-                >
-                  Code Checker
-                </a>
-              </div>
-            </li>
-          </ol>
-        </nav>
-      </div>
+    <div className="pb-10 sm:py-22 md:px-10">
+      <BreadCrumb
+        title="Coupon code Checker"
+        description="Validate your coupon code."
+        breadcrumbItems={breadcrumbItems}
+      />
       <div className="bg-white">
         <div className="mx-auto max-w-7xl py-24 sm:px-5 sm:py-32 lg:px-8">
           <div className="relative isolate overflow-hidden bg-gray-900 pt-16 shadow-2xl sm:rounded-3xl px-0 md:w-full md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">

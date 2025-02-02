@@ -1,4 +1,9 @@
-import { FaGraduationCap, FaLock, FaLaptop } from "react-icons/fa";
+import {
+  FaCloudUploadAlt,
+  FaLock,
+  FaSyncAlt,
+  FaFingerprint,
+} from "react-icons/fa";
 import Gradient from "./Gradient";
 
 const WhatIsPhenomAbout = () => {
@@ -7,7 +12,7 @@ const WhatIsPhenomAbout = () => {
       title: "Skill Acquisition",
       description:
         "Phenom isn’t just about earning; it’s also about learning. Our platform offers users access to expert-led courses in various areas of the digital world, helping you develop new skills and unlock your smartphone’s full potential.",
-      icon: <FaGraduationCap />,
+      icon: <FaCloudUploadAlt />,
     },
     {
       title: "Quick Loans",
@@ -19,13 +24,13 @@ const WhatIsPhenomAbout = () => {
       title: "Social media monetization",
       description:
         "Phenom allows users to monetize their social media accounts effortlessly. By connecting your Instagram or TikTok account to Phenom, you can create videos showcasing Phenom and its features. Simply use our official hashtags and tag us in your posts.",
-      icon: <FaLaptop />,
+      icon: <FaSyncAlt />,
     },
     {
       title: "Phenom Quiz",
       description:
         "The Phenom Quiz is a daily opportunity to earn by answering questions correctly. Each correct answer rewards you handsomely, which is added to your affiliate balance, New questions are posted every day, giving you consistent chances to boost your earnings just by testing your knowledge.",
-      icon: <FaLaptop />,
+      icon: <FaFingerprint />,
     },
   ];
 

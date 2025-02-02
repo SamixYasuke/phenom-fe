@@ -96,12 +96,15 @@ const Header = () => {
           />
 
           <li>
-            <a href="#" className="hover:text-gray-300  font-semibold">
+            <a
+              href="/top-earners"
+              className="hover:text-gray-300  font-semibold"
+            >
               Top Earners
             </a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300  font-semibold">
+            <a href="/contact" className="hover:text-gray-300  font-semibold">
               Contact Us
             </a>
           </li>
