@@ -1,4 +1,9 @@
+"use client";
+import { usePathname } from "next/navigation";
+
 const OthersDropdown = ({ othersRef, setIsOthersOpen, isOthersOpen }) => {
+  const pathname = usePathname();
+
   return (
     <li className="relative z-10" ref={othersRef}>
       <button
@@ -24,11 +29,13 @@ const OthersDropdown = ({ othersRef, setIsOthersOpen, isOthersOpen }) => {
         </span>
       </button>
       {isOthersOpen && (
-        <ul className="absolute left-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg py-2">
+        <ul className="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-lg py-2">
           <li>
             <a
               href="/privacy"
-              className="block px-4 py-2 hover:bg-gray-200 text-sm"
+              className={`block px-4 py-2 hover:bg-gray-200 text-sm ${
+                pathname === "/privacy" ? "text-yellow-500 font-bold" : ""
+              }`}
             >
               Privacy Policy
             </a>
@@ -36,7 +43,9 @@ const OthersDropdown = ({ othersRef, setIsOthersOpen, isOthersOpen }) => {
           <li>
             <a
               href="/terms"
-              className="block px-4 py-2 hover:bg-gray-200 text-sm"
+              className={`block px-4 py-2 hover:bg-gray-200 text-sm ${
+                pathname === "/terms" ? "text-yellow-500 font-bold" : ""
+              }`}
             >
               Terms & Conditions
             </a>

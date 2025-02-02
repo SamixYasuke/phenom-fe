@@ -2,17 +2,18 @@
 import { useState, useRef, useEffect } from "react";
 import CouponCodeDropdown from "./CouponCodeDropdown";
 import OthersDropdown from "./OthersDropdown";
-import MobileMenu from "./MobileMenu"; // Ensure you have the correct path
+import MobileMenu from "./MobileMenu";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isCouponOpen, setIsCouponOpen] = useState(false);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const couponRef = useRef(null);
   const othersRef = useRef(null);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (couponRef.current && !couponRef.current.contains(event.target)) {
@@ -35,7 +36,6 @@ const Header = () => {
 
   return (
     <header className="bg-transparent md:bg-[rgb(34,6,54)] text-white p-6 lg:px-8 absolute inset-x-0 z-50 sm:bg-primary top-0 flex justify-between items-center">
-      {/* Logo */}
       <div>
         <a href="/">
           <img
@@ -45,7 +45,6 @@ const Header = () => {
           />
         </a>
       </div>
-      {/* Hamburger Menu for Mobile */}
       <div className="lg:hidden">
         <button onClick={toggleMenu} className="text-black bg-gray-200">
           <svg
@@ -64,18 +63,24 @@ const Header = () => {
           </svg>
         </button>
       </div>
-      {/* Navigation (Hidden on LG and below) */}
       <nav className="lg:flex hidden">
         <ul className={`flex gap-12 items-center`}>
           <li>
-            <a href="/" className="hover:text-gray-300 font-semibold text-sm">
+            <a
+              href="/"
+              className={`hover:text-gray-300 font-semibold text-sm ${
+                pathname === "/" ? "text-yellow-500" : "text-accent"
+              }`}
+            >
               Home
             </a>
           </li>
           <li>
             <a
               href="/about"
-              className="hover:text-gray-300 font-semibold text-sm"
+              className={`hover:text-gray-300 font-semibold text-sm ${
+                pathname === "/about" ? "text-yellow-500" : "text-accent"
+              }`}
             >
               About
             </a>
@@ -83,12 +88,13 @@ const Header = () => {
           <li>
             <a
               href="/phenom-claim"
-              className="hover:text-gray-300 font-semibold text-sm"
+              className={`hover:text-gray-300 font-semibold text-sm ${
+                pathname === "/phenom-claim" ? "text-yellow-500" : "text-accent"
+              }`}
             >
               Phenom Claim
             </a>
           </li>
-          {/* Coupon Code Dropdown */}
           <CouponCodeDropdown
             couponRef={couponRef}
             isCouponOpen={isCouponOpen}
@@ -97,7 +103,9 @@ const Header = () => {
           <li>
             <a
               href="/top-earners"
-              className="hover:text-gray-300 font-semibold text-sm"
+              className={`hover:text-gray-300 font-semibold text-sm ${
+                pathname === "/top-earners" ? "text-yellow-500" : "text-accent"
+              }`}
             >
               Top Earners
             </a>
@@ -105,12 +113,13 @@ const Header = () => {
           <li>
             <a
               href="/contact"
-              className="hover:text-gray-300 font-semibold text-sm"
+              className={`hover:text-gray-300 font-semibold text-sm ${
+                pathname === "/contact" ? "text-yellow-500" : "text-accent"
+              }`}
             >
               Contact Us
             </a>
           </li>
-          {/* Others Dropdown */}
           <OthersDropdown
             othersRef={othersRef}
             setIsOthersOpen={setIsOthersOpen}
@@ -118,9 +127,7 @@ const Header = () => {
           />
         </ul>
       </nav>
-      {/* Mobile Menu with Animation */}
       <MobileMenu isMobileMenuOpen={isMobileMenuOpen} toggleMenu={toggleMenu} />
-      {/* Login Button (Hidden on LG and below) */}
       <div className="lg:block hidden">
         <a href="/login" className="px-4 py-2 text-white font-semibold text-sm">
           Log In →

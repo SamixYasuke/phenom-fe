@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
   const [isCouponOpen, setIsCouponOpen] = useState(false);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
@@ -34,19 +36,25 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
 
           <a
             href="/"
-            className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 text-accent"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 text-accent ${
+              pathname === "/" ? "text-yellow-500" : "text-accent"
+            }`}
           >
             Home
           </a>
           <a
             href="/about"
-            className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
+              pathname === "/about" ? "text-yellow-500" : "text-accent"
+            }`}
           >
             About
           </a>
           <a
             href="/phenom-claim"
-            className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
+              pathname === "/phenom-claim" ? "text-yellow-500" : "text-accent"
+            }`}
           >
             Phenom Claim
           </a>
@@ -73,13 +81,21 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
             <div className="pl-6 space-y-2">
               <a
                 href="/coupon/checker"
-                className="block text-sm text-gray-300 hover:text-white mb-6 mt-5 font-bold"
+                className={`block text-sm text-gray-300 hover:text-white mb-6 mt-5 font-bold ${
+                  pathname === "/coupon/checker"
+                    ? "text-blue-600"
+                    : "text-accent"
+                }`}
               >
                 Coupon Checker
               </a>
               <a
                 href="/coupon/vendors"
-                className="block text-sm text-gray-300 hover:text-white font-bold"
+                className={`block text-sm text-gray-300 hover:text-white font-bold ${
+                  pathname === "/coupon/vendors"
+                    ? "text-blue-600"
+                    : "text-accent"
+                }`}
               >
                 Coupon Vendors
               </a>
@@ -88,13 +104,17 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
 
           <a
             href="/top-earners"
-            className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
+              pathname === "/top-earners" ? "text-yellow-500" : "text-accent"
+            }`}
           >
             Top Earners
           </a>
           <a
             href="/contact"
-            className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
+              pathname === "/contact" ? "text-yellow-500" : "text-accent"
+            }`}
           >
             Contact Us
           </a>
@@ -121,13 +141,17 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
             <div className="pl-6 space-y-2">
               <a
                 href="/privacy"
-                className="block mb-6 mt-5 text-sm text-gray-300 hover:text-white font-bold"
+                className={`block mb-6 mt-5 text-sm text-gray-300 hover:text-white font-bold ${
+                  pathname === "/privacy" ? "text-yellow-500" : "text-accent"
+                }`}
               >
                 Privacy Policy
               </a>
               <a
                 href="/terms"
-                className="block text-sm text-gray-300 hover:text-white font-bold"
+                className={`block text-sm text-gray-300 hover:text-white font-bold ${
+                  pathname === "/terms" ? "text-yellow-500" : "text-accent"
+                }`}
               >
                 Terms and Condition
               </a>

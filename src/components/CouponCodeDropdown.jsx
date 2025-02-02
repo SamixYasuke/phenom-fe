@@ -1,9 +1,16 @@
+"use client";
+import { usePathname } from "next/navigation";
+
 const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
+  const pathname = usePathname();
+
   return (
     <li className="relative z-10" ref={couponRef}>
       <button
         onClick={() => setIsCouponOpen(!isCouponOpen)}
-        className="flex items-center gap-1 hover:text-gray-300 font-semibold text-sm"
+        className={`flex items-center gap-1 hover:text-gray-300 font-semibold text-sm ${
+          pathname.startsWith("/coupon") ? "text-yellow-500" : "text-accent"
+        }`}
       >
         Coupon Code{" "}
         <span>
@@ -28,7 +35,9 @@ const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
           <li>
             <a
               href="/coupon/checker"
-              className="block px-4 py-2 hover:bg-gray-200 text-sm"
+              className={`block px-4 py-2 hover:bg-gray-200 text-sm ${
+                pathname === "/coupon/checker" ? "text-blue-500 font-bold" : ""
+              }`}
             >
               Coupon Checker
             </a>
@@ -36,7 +45,9 @@ const CouponCodeDropdown = ({ couponRef, isCouponOpen, setIsCouponOpen }) => {
           <li>
             <a
               href="/coupon/vendors"
-              className="block px-4 py-2 hover:bg-gray-200 text-sm"
+              className={`block px-4 py-2 hover:bg-gray-200 text-sm ${
+                pathname === "/coupon/vendors" ? "text-blue-500 font-bold" : ""
+              }`}
             >
               Coupon Vendors
             </a>
