@@ -10,9 +10,9 @@ const Layout = ({ children }) => {
 
   if (noLayoutPages.includes(pathname)) {
     return (
-      <html lang="en">
-        <body>{children}</body>
-      </html>
+      <section>
+        <div>{children}</div>
+      </section>
     );
   }
 
