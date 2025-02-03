@@ -1,10 +1,31 @@
 "use client";
 
 import RegisterModal from "./RegisterModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ContactUsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [socialLinks, setSocialLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchSocialMediaLinks = async () => {
+      try {
+        const res = await fetch("/api/social-links");
+        const data = await res.json();
+        console.log(data);
+        if (Array.isArray(data)) {
+          setSocialLinks(data);
+        } else {
+          setSocialLinks([]);
+        }
+      } catch (error) {
+        console.error("Error fetching social media links:", error);
+        setSocialLinks([]);
+      }
+    };
+
+    fetchSocialMediaLinks();
+  }, []);
 
   return (
     <section className="bg-gray-900 text-white w-full py-20 lg:py-32 px-8 xl:px-16">
@@ -21,22 +42,27 @@ const ContactUsSection = () => {
           </p>
         </div>
 
-        {/* Buttons - Ensured they stay in one row */}
+        {/* Buttons */}
         <div className="mt-6 flex flex-nowrap gap-6">
           <button className="text-sm border border-purple-400 text-purple-400 px-2 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-400 hover:text-white transition-all">
             Get Coupon <span className="text-lg">🎟️</span>
           </button>
           <button
             className="text-sm bg-purple-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-600 transition-all"
-            onClick={() => setIsModalOpen(true)} // Open modal on click
+            onClick={() => setIsModalOpen(true)}
           >
             Register <span className="text-lg">→</span>
           </button>
         </div>
       </div>
 
-      {/* Modal Component */}
-      {isModalOpen && <RegisterModal setIsModalOpen={setIsModalOpen} />}
+      {/* Modal */}
+      {isModalOpen && (
+        <RegisterModal
+          setIsModalOpen={setIsModalOpen}
+          socialLinks={socialLinks}
+        />
+      )}
     </section>
   );
 };
