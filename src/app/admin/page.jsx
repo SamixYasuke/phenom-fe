@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FaTwitter, FaWhatsapp, FaTelegram, FaSpinner } from "react-icons/fa";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import { signOut } from "next-auth/react";
 
 const socialMediaOptions = [
   { name: "Twitter", icon: <FaTwitter className="text-blue-400" /> },
@@ -183,146 +185,162 @@ export default function AdminPage() {
     }
   };
 
+  const handleLogout = async () => {
+    await signOut({ callbackUrl: "/" }); // Logs out and redirects to home
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 px-4 sm:px-6 pt-8 md:pt-40">
-      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">
-        Admin Page
-      </h1>
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gray-100 px-4 sm:px-6 pt-8 md:pt-40">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">
+          Admin Page
+        </h1>
 
-      {/* Social Links Section */}
-      <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold mb-4">Social Links</h2>
-        <div className="flex flex-col sm:flex-row gap-2 mb-4">
-          <select
-            value={selectedSocial}
-            onChange={(e) => setSelectedSocial(e.target.value)}
-            className="px-4 py-2 border rounded-lg focus:outline-none"
-            disabled={editingSocial !== null}
-          >
-            <option value="">Select</option>
-            {socialMediaOptions
-              .filter(
-                (option) =>
-                  editingSocial ||
-                  !socialLinks.some((link) => link.name === option.name)
-              )
-              .map((option) => (
-                <option key={option.name} value={option.name}>
-                  {option.name}
-                </option>
-              ))}
-          </select>
-          <input
-            value={newUrl}
-            onChange={(e) => setNewUrl(e.target.value)}
-            placeholder="Enter social media URL"
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            onClick={addOrUpdateSocialLink}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-            disabled={loadingSocial}
-          >
-            {loadingSocial ? (
-              <FaSpinner className="animate-spin" />
-            ) : editingSocial ? (
-              "Update"
-            ) : (
-              "Add"
-            )}
-          </button>
-        </div>
-        {responseMessage && (
-          <div className="text-center text-green-500 mb-4">
-            {responseMessage}
-          </div>
-        )}
-        <ul className="space-y-2">
-          {socialLinks.map((link) => {
-            const icon = socialMediaOptions.find(
-              (option) => option.name === link.name
-            )?.icon;
-            return (
-              <li
-                key={link.name}
-                className="p-2 border rounded-lg bg-gray-50 flex flex-col sm:flex-row items-center justify-between"
-              >
-                <div className="flex flex-col sm:flex-row items-center gap-2">
-                  {icon}
-                  <span>{link.name}</span> -{" "}
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={link.url}
-                    className="text-blue-500 underline text-center"
-                  >
-                    {link.url}
-                  </a>
-                </div>
-                <div className="flex gap-2 mt-2 sm:mt-0">
-                  <button
-                    onClick={() => startEditing(link.name, link.url)}
-                    className="text-yellow-500 hover:underline"
-                    disabled={loadingSocial}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteSocialLink(link.name)}
-                    className="text-red-500 hover:underline"
-                    disabled={loadingSocial}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      {/* Coupon URL Section */}
-      <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-lg shadow-md mt-4 sm:mt-6">
-        <h2 className="text-xl font-semibold mb-4">Coupon URL</h2>
-        <div className="flex flex-col sm:flex-row gap-2 mb-4">
-          <input
-            value={newCoupon}
-            onChange={(e) => setNewCoupon(e.target.value)}
-            placeholder="Enter coupon URL"
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-          <button
-            onClick={addCoupon}
-            className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-            disabled={loadingCoupon}
-          >
-            {loadingCoupon ? (
-              <FaSpinner className="animate-spin" />
-            ) : (
-              "Add / Update"
-            )}
-          </button>
-          {couponUrl && (
+        {/* Social Links Section */}
+        <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4">Social Links</h2>
+          <div className="flex flex-col sm:flex-row gap-2 mb-4">
+            <select
+              value={selectedSocial}
+              onChange={(e) => setSelectedSocial(e.target.value)}
+              className="px-4 py-2 border rounded-lg focus:outline-none"
+              disabled={editingSocial !== null}
+            >
+              <option value="">Select</option>
+              {socialMediaOptions
+                .filter(
+                  (option) =>
+                    editingSocial ||
+                    !socialLinks.some((link) => link.name === option.name)
+                )
+                .map((option) => (
+                  <option key={option.name} value={option.name}>
+                    {option.name}
+                  </option>
+                ))}
+            </select>
+            <input
+              value={newUrl}
+              onChange={(e) => setNewUrl(e.target.value)}
+              placeholder="Enter social media URL"
+              className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
             <button
-              onClick={deleteCoupon}
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              onClick={addOrUpdateSocialLink}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              disabled={loadingSocial}
+            >
+              {loadingSocial ? (
+                <FaSpinner className="animate-spin" />
+              ) : editingSocial ? (
+                "Update"
+              ) : (
+                "Add"
+              )}
+            </button>
+          </div>
+          {responseMessage && (
+            <div className="text-center text-green-500 mb-4">
+              {responseMessage}
+            </div>
+          )}
+          <ul className="space-y-2">
+            {socialLinks.map((link) => {
+              const icon = socialMediaOptions.find(
+                (option) => option.name === link.name
+              )?.icon;
+              return (
+                <li
+                  key={link.name}
+                  className="p-2 border rounded-lg bg-gray-50 flex flex-col sm:flex-row items-center justify-between"
+                >
+                  <div className="flex flex-col sm:flex-row items-center gap-2">
+                    {icon}
+                    <span>{link.name}</span> -{" "}
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={link.url}
+                      className="text-blue-500 underline text-center"
+                    >
+                      {link.url}
+                    </a>
+                  </div>
+                  <div className="flex gap-2 mt-2 sm:mt-0">
+                    <button
+                      onClick={() => startEditing(link.name, link.url)}
+                      className="text-yellow-500 hover:underline"
+                      disabled={loadingSocial}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => deleteSocialLink(link.name)}
+                      className="text-red-500 hover:underline"
+                      disabled={loadingSocial}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Coupon URL Section */}
+        <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-lg shadow-md mt-4 sm:mt-6">
+          <h2 className="text-xl font-semibold mb-4">Coupon URL</h2>
+          <div className="flex flex-col sm:flex-row gap-2 mb-4">
+            <input
+              value={newCoupon}
+              onChange={(e) => setNewCoupon(e.target.value)}
+              placeholder="Enter coupon URL"
+              className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <button
+              onClick={addCoupon}
+              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
               disabled={loadingCoupon}
             >
-              Delete
+              {loadingCoupon ? (
+                <FaSpinner className="animate-spin" />
+              ) : (
+                "Add / Update"
+              )}
             </button>
+            {couponUrl && (
+              <button
+                onClick={deleteCoupon}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                disabled={loadingCoupon}
+              >
+                Delete
+              </button>
+            )}
+          </div>
+          {couponUrl && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={couponUrl}
+              className="p-2 border rounded-lg bg-gray-50 block text-center sm:text-left underline text-blue-500"
+            >
+              {couponUrl}
+            </a>
           )}
         </div>
-        {couponUrl && (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={couponUrl}
-            className="p-2 border rounded-lg bg-gray-50 block text-center sm:text-left underline text-blue-500"
-          >
-            {couponUrl}
-          </a>
-        )}
+        <div>
+          <div className="flex justify-center items-center my-7">
+            <button
+              onClick={handleLogout}
+              className="w-[70%] bg-red-600 hover:bg-red-700 mt-4 p-2 rounded font-semibold"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }
