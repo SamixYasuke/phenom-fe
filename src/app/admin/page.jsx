@@ -184,13 +184,15 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Admin Page</h1>
+    <div className="min-h-screen bg-gray-100 px-4 sm:px-6 pt-8 md:pt-40">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">
+        Admin Page
+      </h1>
 
       {/* Social Links Section */}
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+      <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold mb-4">Social Links</h2>
-        <div className="flex gap-2 mb-4 flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-2 mb-4">
           <select
             value={selectedSocial}
             onChange={(e) => setSelectedSocial(e.target.value)}
@@ -243,21 +245,21 @@ export default function AdminPage() {
             return (
               <li
                 key={link.name}
-                className="p-2 border rounded-lg bg-gray-50 flex items-center justify-between"
+                className="p-2 border rounded-lg bg-gray-50 flex flex-col sm:flex-row items-center justify-between"
               >
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center gap-2">
                   {icon}
                   <span>{link.name}</span> -{" "}
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={link.url}
-                    className="text-blue-500 underline"
+                    className="text-blue-500 underline text-center"
                   >
                     {link.url}
                   </a>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 mt-2 sm:mt-0">
                   <button
                     onClick={() => startEditing(link.name, link.url)}
                     className="text-yellow-500 hover:underline"
@@ -280,14 +282,14 @@ export default function AdminPage() {
       </div>
 
       {/* Coupon URL Section */}
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md mt-6">
+      <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-lg shadow-md mt-4 sm:mt-6">
         <h2 className="text-xl font-semibold mb-4">Coupon URL</h2>
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-col sm:flex-row gap-2 mb-4">
           <input
             value={newCoupon}
             onChange={(e) => setNewCoupon(e.target.value)}
             placeholder="Enter coupon URL"
-            className="flex-1  px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           <button
             onClick={addCoupon}
@@ -315,7 +317,7 @@ export default function AdminPage() {
             target="_blank"
             rel="noopener noreferrer"
             href={couponUrl}
-            className="p-2 border rounded-lg bg-gray-50"
+            className="p-2 border rounded-lg bg-gray-50 block text-center sm:text-left underline text-blue-500"
           >
             {couponUrl}
           </a>
