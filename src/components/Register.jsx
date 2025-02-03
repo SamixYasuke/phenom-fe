@@ -1,6 +1,25 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 
 const Register = () => {
+  const [couponLink, setCouponLink] = useState("#");
+
+  useEffect(() => {
+    const fetchSocialMediaLinks = async () => {
+      try {
+        const res = await fetch("/api/coupons");
+        const data = await res.json();
+        console.log(data);
+        setCouponLink(data);
+      } catch (error) {
+        console.error("Error fetching social media links:", error);
+        setCouponLink("#");
+      }
+    };
+
+    fetchSocialMediaLinks();
+  }, []);
   return (
     <div className="sm:h-full py-10 bg-[url('/images/mobile-menu-bg.jpg')] bg-no-repeat bg-cover flex justify-center items-center">
       <div className="w-full max-w-md p-8 text-white">
@@ -65,7 +84,9 @@ const Register = () => {
           <p className="text-sm text-white mb-2">
             You do not have a code?{" "}
             <a
-              href="/coupon/vendors"
+              href={couponLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-yellow-300 cursor-pointer font-extrabold"
             >
               Get Code
