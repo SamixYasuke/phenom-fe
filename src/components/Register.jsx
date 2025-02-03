@@ -66,18 +66,13 @@ const Register = () => {
             You do not have a code?{" "}
             <a
               href="/coupon/vendors"
-              className="text-yellow-300 cursor-pointer"
+              className="text-yellow-300 cursor-pointer font-extrabold"
             >
               Get Code
             </a>
           </p>
 
-          <select className="w-full p-3 mb-3 rounded-lg bg-[#d3b5ea] text-[#541087] border border-purple-300">
-            <option>Select Plan</option>
-            <option>Phenom</option>
-          </select>
-
-          <div className="flex items-center mb-4">
+          {/* <div className="flex items-center mb-4">
             <input
               type="checkbox"
               className="w-4 h-4 text-yellow-400 border-2 border-yellow-400 rounded mr-2"
@@ -88,10 +83,9 @@ const Register = () => {
                 Terms & Conditions
               </a>
             </span>
-          </div>
-
+          </div> */}
           <button className="w-full p-3 bg-yellow-400 hover:bg-yellow-400/70 text-[#541087] font-bold rounded-lg">
-            Create account
+            Register
           </button>
         </form>
       </div>

@@ -1,7 +1,6 @@
 import AccordionComponent from "@/components/AccordionSection";
+import ContactUsSection from "@/components/ContactUsSection";
 import FeatureSection from "@/components/FeatureSection";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import NotYourWorry from "@/components/NotYourWorry";
 import PhenomLoan from "@/components/PhenomLoan";
@@ -12,6 +11,7 @@ const Home = () => {
     <div>
       <HeroSection />
       <WhatIsPhenomAbout />
+      <ContactUsSection />
       <NotYourWorry />
       <FeatureSection />
       <PhenomLoan />

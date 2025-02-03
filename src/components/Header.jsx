@@ -77,54 +77,24 @@ const Header = () => {
           </li>
           <li>
             <a
-              href="/about"
+              href="/register"
               className={`hover:text-gray-300 font-semibold text-sm ${
                 pathname === "/about" ? "text-yellow-500" : "text-accent"
               }`}
             >
-              About
+              Get Registered
             </a>
           </li>
           <li>
             <a
-              href="/phenom-claim"
-              className={`hover:text-gray-300 font-semibold text-sm ${
-                pathname === "/phenom-claim" ? "text-yellow-500" : "text-accent"
-              }`}
-            >
-              Phenom Claim
-            </a>
-          </li>
-          <CouponCodeDropdown
-            couponRef={couponRef}
-            isCouponOpen={isCouponOpen}
-            setIsCouponOpen={setIsCouponOpen}
-          />
-          <li>
-            <a
-              href="/top-earners"
-              className={`hover:text-gray-300 font-semibold text-sm ${
-                pathname === "/top-earners" ? "text-yellow-500" : "text-accent"
-              }`}
-            >
-              Top Earners
-            </a>
-          </li>
-          <li>
-            <a
-              href="/contact"
+              href="/coupon"
               className={`hover:text-gray-300 font-semibold text-sm ${
                 pathname === "/contact" ? "text-yellow-500" : "text-accent"
               }`}
             >
-              Contact Us
+              Get Coupon Code
             </a>
           </li>
-          <OthersDropdown
-            othersRef={othersRef}
-            setIsOthersOpen={setIsOthersOpen}
-            isOthersOpen={isOthersOpen}
-          />
         </ul>
       </nav>
       <MobileMenu isMobileMenuOpen={isMobileMenuOpen} toggleMenu={toggleMenu} />

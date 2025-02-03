@@ -33,7 +33,6 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
               ×
             </button>
           </div>
-
           <a
             href="/"
             className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 text-accent ${
@@ -43,128 +42,22 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
             Home
           </a>
           <a
-            href="/about"
-            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
-              pathname === "/about" ? "text-yellow-500" : "text-accent"
+            href="/register"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold  ${
+              pathname === "/register" ? "text-yellow-500" : "text-accent"
             }`}
           >
-            About
+            Get Registered
           </a>
           <a
-            href="/phenom-claim"
-            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
-              pathname === "/phenom-claim" ? "text-yellow-500" : "text-accent"
+            href="/coupon"
+            className={`block rounded-lg px-3 py-2 text-base font-semibold  ${
+              pathname === "/register" ? "text-yellow-500" : "text-accent"
             }`}
           >
-            Phenom Claim
+            Get Coupon Code
           </a>
-
-          {/* Coupon Code dropdown */}
-          <button
-            className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold hover:bg-gray-600"
-            onClick={() => setIsCouponOpen(!isCouponOpen)}
-          >
-            Coupon Code
-            <svg
-              className={`h-5 w-5 text-gray-400`}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-          </button>
-          {isCouponOpen && (
-            <div className="pl-6 space-y-2">
-              <a
-                href="/coupon/checker"
-                className={`block text-sm text-gray-300 hover:text-white mb-6 mt-5 font-bold ${
-                  pathname === "/coupon/checker"
-                    ? "text-blue-600"
-                    : "text-accent"
-                }`}
-              >
-                Coupon Checker
-              </a>
-              <a
-                href="/coupon/vendors"
-                className={`block text-sm text-gray-300 hover:text-white font-bold ${
-                  pathname === "/coupon/vendors"
-                    ? "text-blue-600"
-                    : "text-accent"
-                }`}
-              >
-                Coupon Vendors
-              </a>
-            </div>
-          )}
-
-          <a
-            href="/top-earners"
-            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
-              pathname === "/top-earners" ? "text-yellow-500" : "text-accent"
-            }`}
-          >
-            Top Earners
-          </a>
-          <a
-            href="/contact"
-            className={`block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 ${
-              pathname === "/contact" ? "text-yellow-500" : "text-accent"
-            }`}
-          >
-            Contact Us
-          </a>
-
-          {/* Others dropdown */}
-          <button
-            className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold hover:bg-gray-600"
-            onClick={() => setIsOthersOpen(!isOthersOpen)}
-          >
-            Others
-            <svg
-              className={`h-5 w-5 text-gray-400`}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-          </button>
-          {isOthersOpen && (
-            <div className="pl-6 space-y-2">
-              <a
-                href="/privacy"
-                className={`block mb-6 mt-5 text-sm text-gray-300 hover:text-white font-bold ${
-                  pathname === "/privacy" ? "text-yellow-500" : "text-accent"
-                }`}
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="/terms"
-                className={`block text-sm text-gray-300 hover:text-white font-bold ${
-                  pathname === "/terms" ? "text-yellow-500" : "text-accent"
-                }`}
-              >
-                Terms and Condition
-              </a>
-            </div>
-          )}
-
           <div className="border-solid w-full h-[1.2px] bg-yellow-500"></div>
-          <a
-            href="/login"
-            className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-gray-50 text-accent"
-          >
-            Login
-          </a>
         </div>
       </div>
     </motion.div>
