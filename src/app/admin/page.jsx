@@ -191,7 +191,7 @@ export default function AdminPage() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-gray-100 px-4 sm:px-6 pt-8 md:pt-40">
+      <div className="min-h-screen bg-gray-100 px-4 sm:px-6 pt-8 md:pt-20">
         <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">
           Admin Page
         </h1>
@@ -331,7 +331,7 @@ export default function AdminPage() {
           )}
         </div>
         <div>
-          <div className="flex justify-center items-center my-7">
+          <div className="flex justify-center items-center py-7">
             <button
               onClick={handleLogout}
               className="w-[70%] bg-red-600 hover:bg-red-700 mt-4 p-2 rounded font-semibold"

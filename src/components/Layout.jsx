@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const pathname = usePathname();
-  const noLayoutPages = ["/login", "/register"];
+  const noLayoutPages = ["/login", "/register", "/admin"];
 
   if (noLayoutPages.includes(pathname)) {
     return (
