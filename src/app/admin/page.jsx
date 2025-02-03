@@ -156,7 +156,12 @@ export default function AdminPage() {
               <div className="flex items-center gap-2">
                 {socialMediaOptions.find((s) => s.name === link.name)?.icon}
                 <span>{link.name}</span> -
-                <a href={link.url} className="text-blue-500 underline">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link.url}
+                  className="text-blue-500 underline"
+                >
                   {link.url}
                 </a>
               </div>
@@ -204,7 +209,14 @@ export default function AdminPage() {
           )}
         </div>
         {couponUrl && (
-          <p className="p-2 border rounded-lg bg-gray-50">{couponUrl}</p>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={couponUrl || "#"}
+            className="p-2 border rounded-lg bg-gray-50"
+          >
+            {couponUrl}
+          </a>
         )}
       </div>
     </div>

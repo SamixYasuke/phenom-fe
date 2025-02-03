@@ -18,7 +18,7 @@ function writeData(data) {
 // GET: Fetch coupon URL
 export async function GET() {
   const data = readData();
-  return NextResponse.json(data.coupons || []);
+  return NextResponse.json(data.coupon || "");
 }
 
 // POST: Add or update coupon URL
@@ -26,16 +26,15 @@ export async function POST(request) {
   const { url } = await request.json();
   const data = readData();
 
-  data.coupons = [url];
+  data.coupon = url;
   writeData(data);
-
   return NextResponse.json({ message: "Coupon added successfully" });
 }
 
 // DELETE: Delete coupon URL
 export async function DELETE() {
   const data = readData();
-  data.coupons = [];
+  data.coupon = "";
   writeData(data);
 
   return NextResponse.json({ message: "Coupon deleted successfully" });

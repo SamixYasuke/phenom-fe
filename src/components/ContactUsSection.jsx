@@ -6,13 +6,17 @@ import { useEffect, useState } from "react";
 const ContactUsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [socialLinks, setSocialLinks] = useState([]);
+  const [couponLink, setCouponLink] = useState("#");
 
   useEffect(() => {
     const fetchSocialMediaLinks = async () => {
       try {
         const res = await fetch("/api/social-links");
+        const couponres = await fetch("/api/coupons");
         const data = await res.json();
+        const couponData = await couponres.json();
         console.log(data);
+        setCouponLink(couponData);
         if (Array.isArray(data)) {
           setSocialLinks(data);
         } else {
@@ -21,6 +25,7 @@ const ContactUsSection = () => {
       } catch (error) {
         console.error("Error fetching social media links:", error);
         setSocialLinks([]);
+        setCouponLink("#");
       }
     };
 
@@ -44,9 +49,14 @@ const ContactUsSection = () => {
 
         {/* Buttons */}
         <div className="mt-6 flex flex-nowrap gap-6">
-          <button className="text-sm border border-purple-400 text-purple-400 px-2 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-400 hover:text-white transition-all">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={couponLink}
+            className="text-sm border border-purple-400 text-purple-400 px-2 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-400 hover:text-white transition-all"
+          >
             Get Coupon <span className="text-lg">🎟️</span>
-          </button>
+          </a>
           <button
             className="text-sm bg-purple-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-purple-600 transition-all"
             onClick={() => setIsModalOpen(true)}
