@@ -1,36 +1,10 @@
 "use client";
 
 import RegisterModal from "./RegisterModal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const ContactUsSection = () => {
+const ContactUsSection = ({ socialLinks, couponLink }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [socialLinks, setSocialLinks] = useState([]);
-  const [couponLink, setCouponLink] = useState("#");
-
-  useEffect(() => {
-    const fetchSocialMediaLinks = async () => {
-      try {
-        const res = await fetch("/api/social-links");
-        const couponres = await fetch("/api/coupons");
-        const data = await res.json();
-        const couponData = await couponres.json();
-        console.log(data);
-        setCouponLink(couponData);
-        if (Array.isArray(data)) {
-          setSocialLinks(data);
-        } else {
-          setSocialLinks([]);
-        }
-      } catch (error) {
-        console.error("Error fetching social media links:", error);
-        setSocialLinks([]);
-        setCouponLink("#");
-      }
-    };
-
-    fetchSocialMediaLinks();
-  }, []);
 
   return (
     <section className="bg-gray-900 text-white w-full py-20 lg:py-32 px-8 xl:px-16">
