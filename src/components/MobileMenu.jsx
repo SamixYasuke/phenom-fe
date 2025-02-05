@@ -49,14 +49,6 @@ const MobileMenu = ({ isMobileMenuOpen, toggleMenu }) => {
           >
             Get Registered
           </a>
-          <a
-            href="/coupon"
-            className={`block rounded-lg px-3 py-2 text-base font-semibold  ${
-              pathname === "/register" ? "text-yellow-500" : "text-accent"
-            }`}
-          >
-            Get Coupon Code
-          </a>
           <div className="border-solid w-full h-[1.2px] bg-yellow-500"></div>
         </div>
       </div>

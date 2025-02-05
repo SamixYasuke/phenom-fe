@@ -1,7 +1,5 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import CouponCodeDropdown from "./CouponCodeDropdown";
-import OthersDropdown from "./OthersDropdown";
 import MobileMenu from "./MobileMenu";
 import { usePathname } from "next/navigation";
 
@@ -65,7 +63,7 @@ const Header = () => {
       </div>
       <nav className="lg:flex hidden">
         <ul className={`flex gap-12 items-center`}>
-          <li>
+          {/* <li>
             <a
               href="/"
               className={`hover:text-gray-300 font-semibold text-sm ${
@@ -75,16 +73,7 @@ const Header = () => {
               Home
             </a>
           </li>
-          <li>
-            <a
-              href="/register"
-              className={`hover:text-gray-300 font-semibold text-sm ${
-                pathname === "/about" ? "text-yellow-500" : "text-accent"
-              }`}
-            >
-              Get Registered
-            </a>
-          </li>
+
           <li>
             <a
               href="/coupon"
@@ -94,7 +83,7 @@ const Header = () => {
             >
               Get Coupon Code
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
       <MobileMenu isMobileMenuOpen={isMobileMenuOpen} toggleMenu={toggleMenu} />

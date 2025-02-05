@@ -1,4 +1,4 @@
-const HeroSection = ({ couponLink }) => {
+const HeroSection = () => {
   return (
     <section className="pt-32 sm:pt-56 pb-52 relative bg-[url('/images/phenom-hero-section-bg.jpg')] bg-cover bg-no-repeat bg-center w-full h-fit">
       <div className=" absolute inset-0 bg-gradient-to-b from-[#22063670] to-[#220636]"></div>
@@ -41,7 +41,7 @@ const HeroSection = ({ couponLink }) => {
       {/* Get Started Button */}
       <div className="relative flex justify-center mt-8">
         <a
-          href={couponLink}
+          href="/register"
           className="text-sm font-bold text-purple-900  hover:text-white transition bg-yellow-400 hover:bg-purple-950 px-4 py-3 rounded-md"
         >
           Get started

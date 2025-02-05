@@ -21,8 +21,9 @@ const FeatureSection = () => {
                   Mobile friendly
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo.
+                  Phenom is designed for seamless mobile use. Enjoy a smooth,
+                  fast, and responsive experience on any device—anytime,
+                  anywhere
                 </p>
               </div>
               <div className="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
@@ -47,8 +48,9 @@ const FeatureSection = () => {
                   Performance
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-100 max-lg:text-center">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                  maiores impedit.
+                  Phenom is built for speed and efficiency. Experience
+                  lightning-fast load times, smooth navigation, and optimized
+                  performance on any device.
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pb-12 max-lg:pt-10 sm:px-10 lg:pb-2">
@@ -71,8 +73,9 @@ const FeatureSection = () => {
                   Security
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                  Morbi viverra dui mi arcu sed. Tellus semper adipiscing
-                  suspendisse semper morbi.
+                  At Phenom, your security is our top priority. We implement
+                  advanced encryption, secure authentication, and continuous
+                  monitoring to protect your data. Start earning today
                 </p>
               </div>
               <div className="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2">
@@ -95,8 +98,9 @@ const FeatureSection = () => {
                   Powerful APIs
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-secondary-text max-lg:text-center text-gray-300">
-                  Sit quis amet rutrum tellus ullamcorper ultricies libero dolor
-                  eget sem sodales gravida.
+                  Phenom offers robust and scalable APIs, enabling seamless
+                  integration, fast data processing, and secure connections for
+                  all your needs.
                 </p>
               </div>
               <div className="relative min-h-[30rem] w-full max-lg:mx-auto max-lg:max-w-sm">

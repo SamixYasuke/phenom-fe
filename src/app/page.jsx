@@ -37,7 +37,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <HeroSection couponLink={couponLink} />
+      <HeroSection />
       <WhatIsPhenomAbout />
       <ContactUsSection socialLinks={socialLinks} couponLink={couponLink} />
       <NotYourWorry />
