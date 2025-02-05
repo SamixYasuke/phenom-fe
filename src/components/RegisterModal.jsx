@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   FaTimesCircle,
   FaWhatsapp,
@@ -6,14 +6,23 @@ import {
   FaFacebook,
   FaTwitter,
 } from "react-icons/fa";
+import { ImSpinner2 } from "react-icons/im";
 
 const RegisterModal = ({ setIsModalOpen, socialLinks = [] }) => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
+
+  useEffect(() => {
+    if (socialLinks.length > 0) {
+      setLoading(false);
+    }
+  }, [socialLinks]);
 
   const iconMap = {
     WhatsApp: <FaWhatsapp size={30} className="text-green-500" />,
@@ -33,35 +42,35 @@ const RegisterModal = ({ setIsModalOpen, socialLinks = [] }) => {
         </button>
         <h3 className="text-xl font-bold">Get Registered Now</h3>
         <p className="mt-2 text-gray-300">
-          Message one of our verified agents on WhatsApp or Telegram to get a{" "}
-          <span className="text-purple-400">coupon code</span>.
+          Message one of our verified agents on WhatsApp or Telegram to get a
+          <span className="text-purple-400"> coupon code</span>.
         </p>
         <div className="mt-4 flex flex-col gap-4">
-          {/* <a
-            href="/register"
-            className="bg-purple-500 text-white px-6 py-2 rounded-lg flex self-start items-center gap-2 hover:bg-purple-600"
-          >
-            Register <span className="text-lg">↗</span>
-          </a> */}
-          {socialLinks.length > 0 && (
-            <div className="flex justify-evenly gap-6 text-center">
-              {socialLinks
-                .filter((link) => link.url)
-                .map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center"
-                  >
-                    {iconMap[link.name] || (
-                      <FaTimesCircle size={30} className="text-gray-500" />
-                    )}
-                    <span>{link.name}</span>
-                  </a>
-                ))}
+          {loading ? (
+            <div className="flex justify-center items-center">
+              <ImSpinner2 size={30} className="animate-spin text-white" />
             </div>
+          ) : (
+            socialLinks.length > 0 && (
+              <div className="flex justify-evenly gap-6 text-center">
+                {socialLinks
+                  .filter((link) => link.url)
+                  .map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center"
+                    >
+                      {iconMap[link.name] || (
+                        <FaTimesCircle size={30} className="text-gray-500" />
+                      )}
+                      <span>{link.name}</span>
+                    </a>
+                  ))}
+              </div>
+            )
           )}
         </div>
       </div>
