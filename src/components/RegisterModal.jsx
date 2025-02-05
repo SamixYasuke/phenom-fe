@@ -37,12 +37,12 @@ const RegisterModal = ({ setIsModalOpen, socialLinks = [] }) => {
           <span className="text-purple-400">Phenom</span> registration.
         </p>
         <div className="mt-4 flex flex-col gap-4">
-          <a
+          {/* <a
             href="/register"
             className="bg-purple-500 text-white px-6 py-2 rounded-lg flex self-start items-center gap-2 hover:bg-purple-600"
           >
             Register <span className="text-lg">↗</span>
-          </a>
+          </a> */}
           {socialLinks.length > 0 && (
             <div className="flex justify-evenly gap-6 text-center">
               {socialLinks
