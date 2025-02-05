@@ -1,25 +1,36 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import RegisterModal from "./RegisterModal";
 
 const Register = () => {
-  const [couponLink, setCouponLink] = useState("#");
+  const [socialLinks, setSocialLinks] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleToggleModal = useCallback((e) => {
+    e.preventDefault();
+    setIsModalOpen((prev) => !prev);
+  }, []);
 
   useEffect(() => {
-    const fetchSocialMediaLinks = async () => {
+    const fetchSocialLinks = async () => {
       try {
-        const res = await fetch("/api/coupons");
+        const res = await fetch("/api/social-links");
         const data = await res.json();
-        console.log(data);
-        setCouponLink(data);
+        if (Array.isArray(data)) {
+          setSocialLinks(data);
+        } else {
+          setSocialLinks([]);
+        }
       } catch (error) {
         console.error("Error fetching social media links:", error);
-        setCouponLink("#");
+        setSocialLinks([]);
       }
     };
 
-    fetchSocialMediaLinks();
+    fetchSocialLinks();
   }, []);
+
   return (
     <div className="sm:h-full py-10 bg-[url('/images/mobile-menu-bg.jpg')] bg-no-repeat bg-cover flex justify-center items-center">
       <div className="w-full max-w-md p-8 text-white">
@@ -53,6 +64,7 @@ const Register = () => {
           <input
             type="text"
             placeholder="Username"
+            autoComplete="username"
             className="w-full p-3 mb-3 rounded-lg bg-[#d3b5ea] text-[#541087] border border-purple-300 placeholder:text-[#541087]"
           />
 
@@ -69,7 +81,9 @@ const Register = () => {
             type="password"
             placeholder="Password"
             className="w-full p-3 mb-3 rounded-lg bg-[#d3b5ea] text-[#541087] border border-purple-300 placeholder:text-[#541087]"
+            autoComplete="password"
           />
+
           <input
             type="text"
             placeholder="Phone"
@@ -83,14 +97,12 @@ const Register = () => {
 
           <p className="text-sm text-white mb-2">
             You do not have a code?{" "}
-            <a
-              href={couponLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-300 cursor-pointer font-extrabold"
+            <button
+              onClick={handleToggleModal}
+              className="text-yellow-300 cursor-pointer font-extrabold text-lg"
             >
               Get Code
-            </a>
+            </button>
           </p>
 
           {/* <div className="flex items-center mb-4">
@@ -105,11 +117,17 @@ const Register = () => {
               </a>
             </span>
           </div> */}
-          <button className="w-full p-3 bg-yellow-400 hover:bg-yellow-400/70 text-[#541087] font-bold rounded-lg">
+          {/* <button className="w-full p-3 bg-yellow-400 hover:bg-yellow-400/70 text-[#541087] font-bold rounded-lg">
             Register
-          </button>
+          </button> */}
         </form>
       </div>
+      {isModalOpen && (
+        <RegisterModal
+          setIsModalOpen={setIsModalOpen}
+          socialLinks={socialLinks}
+        />
+      )}
     </div>
   );
 };
