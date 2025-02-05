@@ -33,8 +33,8 @@ const RegisterModal = ({ setIsModalOpen, socialLinks = [] }) => {
         </button>
         <h3 className="text-xl font-bold">Get Registered Now</h3>
         <p className="mt-2 text-gray-300">
-          Message one of our verified agents on WhatsApp or Telegram for your{" "}
-          <span className="text-purple-400">Phenom</span> registration.
+          Message one of our verified agents on WhatsApp or Telegram to get a{" "}
+          <span className="text-purple-400">coupon code</span>.
         </p>
         <div className="mt-4 flex flex-col gap-4">
           {/* <a
