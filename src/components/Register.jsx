@@ -117,9 +117,12 @@ const Register = () => {
               </a>
             </span>
           </div> */}
-          {/* <button className="w-full p-3 bg-yellow-400 hover:bg-yellow-400/70 text-[#541087] font-bold rounded-lg">
+          <button
+            onClick={handleToggleModal}
+            className="w-full p-3 bg-yellow-400 hover:bg-yellow-400/70 text-[#541087] font-bold rounded-lg"
+          >
             Register
-          </button> */}
+          </button>
         </form>
       </div>
       {isModalOpen && (
