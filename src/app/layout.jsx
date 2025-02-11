@@ -23,12 +23,14 @@ export const metadata = {
   },
   openGraph: {
     title: "Phenom",
-    description: ``,
+    description: `At phenom we’re dedicated to your success, offering innovative and creative features 
+      tailored to you. Your path to greatness begins with us, unlock your digital 
+      potential today. Together, let’s turn your vision into reality.`,
     siteName: "Phenomnet",
     url: "https://www.phenomnet.cloud",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/images/favicon.ico",
         width: 1200,
         height: 630,
         alt: "Phenomnet Logo",
