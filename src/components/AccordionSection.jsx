@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
 const AccordionComponent = () => {
   const [isOpen, setIsOpen] = useState([false, false, false, false]);
@@ -48,23 +49,11 @@ const AccordionComponent = () => {
                       ? "Simple queues"
                       : "Advanced security"}
                   </span>
-                  <svg
-                    className={`w-3 h-3 shrink-0 transition-transform duration-200 ${
+                  <FiChevronDown
+                    className={`w-5 h-5 shrink-0 transition-transform duration-200 ${
                       isOpen[index] ? "rotate-180" : ""
                     }`}
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 5 5 1 1 5"
-                    />
-                  </svg>
+                  />
                 </button>
               </h2>
               {isOpen[index] && (
