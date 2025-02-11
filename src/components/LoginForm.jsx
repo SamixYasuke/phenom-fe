@@ -51,11 +51,14 @@ const LoginForm = () => {
           </h2>
         </div>
         <form className="space-y-6" onSubmit={handleLogin}>
-          <label className="block text-sm mb-1">Username/Email</label>
+          <label className="block text-sm mb-1">
+            This page is for phenom admin only
+          </label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder="Enter admin username"
             type="text"
             className="w-full p-2 rounded bg-white text-black border border-gray-600 focus:outline-none focus:border-purple-500"
           />
@@ -64,6 +67,7 @@ const LoginForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Enter Password"
               autoComplete="current-password"
               type={showPassword ? "text" : "password"}
               className="w-full p-2 rounded bg-white text-black border border-gray-600 focus:outline-none focus:border-purple-500"
